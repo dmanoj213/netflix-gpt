@@ -31,7 +31,7 @@ const handleValidation = () =>
 
   if(!isSignInForm)
   {
-  if(message!== null) return seterrorMessage(message);
+    if(message!== null) return seterrorMessage(message);
     //sign up user
   createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
   .then((userCredential) => {
@@ -74,13 +74,13 @@ const handleValidation = () =>
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    
-   
+
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode + "-"+ errorMessage);
+    seterrorMessage(errorMessage)
   });
 
 
