@@ -1,8 +1,10 @@
-import React from 'react';
-import { signOut } from "firebase/auth";
+import React, { useEffect } from 'react';
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addUser, removeUser } from '../utils/userSlice';
+import { LOGO_URL, USER_AVATAR } from '../utils/constants';
 
 
 
@@ -12,24 +14,43 @@ const Header = () =>
   const navigate = useNavigate();
   const user = useSelector(store => store.user);
 
+  const dispatch = useDispatch();
+
   const handlesignOut = () =>
   {
     signOut(auth).then(() => {
-      navigate("/");
-    }).catch((error) => {
+      }).catch((error) => {
       navigate("/error");
     });
     
       
   }
+
+  useEffect(()=>
+ {
+     const unsubscribe = onAuthStateChanged(auth, (user) => {
+     if (user) {
+      
+      const {uid,email,displayName,photoURL} = user;
+      dispatch(addUser({uid: uid,email:email,displayName:displayName,photoURl:photoURL}));
+      navigate("/browse")
+      
+    } else {
+      dispatch(removeUser());
+      navigate("/")
+    }
+  });
+     return () => unsubscribe();
+ },[])
+
   return (
     <div className='absolute w-screen bg-gradient-to-b from-black z-10 flex justify-between'>
-        <img className='w-48' src='https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png'
+        <img className='w-48' src={LOGO_URL}
          alt='logo'
         />
       {user && <div className='flex p-2'>
         <img alt='usericon' className='w-12 h-12'
-        src='https://avatars.githubusercontent.com/u/94670167?s=400&u=5f63a91ab8832ec66940a446b82f637fa371b0cb&v=4'/>
+        src={USER_AVATAR}/>
         <button onClick={handlesignOut} className='font-bold text-white py-3'>(Sign-out)</button>
       </div>}
 
@@ -39,3 +60,5 @@ const Header = () =>
 }
 
 export default Header;
+
+
