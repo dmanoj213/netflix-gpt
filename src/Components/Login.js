@@ -27,7 +27,7 @@ const [errorMessage,seterrorMessage] = useState();
 const handleValidation = () =>
 {
   const message = checkValidation(email.current.value,password.current.value,fullName.current.value);
-  console.log(email,password,fullName);
+ 
 
   if(!isSignInForm)
   {
@@ -38,7 +38,7 @@ const handleValidation = () =>
     // Signed up 
     
     const user = userCredential.user;
-    console.log(user);
+    
     updateProfile(user, {
       displayName: fullName.current.value,
       photoURL : USER_AVATAR,
@@ -79,7 +79,6 @@ const handleValidation = () =>
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    console.log(errorCode + "-"+ errorMessage);
     seterrorMessage(errorMessage)
   });
 

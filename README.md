@@ -21,6 +21,11 @@ features
   -updated videobackground and videotitle
   -adjusted voideobackground and videotitle
   -embedded autoplay for youtube video
+  -created secondary container iweth movielist and movie card components
+  -created nowplaying movie list,trendingmovielist,popularmovielist,toprated movie list,upcoming movie list
+  -Made our browse page look amazing with tailwind css
+  -made tmdb api call in custom hools for all movie list
+  
 
 
 -Browse(After authentication)
