@@ -24,8 +24,12 @@ features
   -created secondary container iweth movielist and movie card components
   -created nowplaying movie list,trendingmovielist,popularmovielist,toprated movie list,upcoming movie list
   -Made our browse page look amazing with tailwind css
-  -made tmdb api call in custom hools for all movie list
+  -made tmdb api call in custom hooks for all movie list
+  -created gpt search page with gpt search bar and gptsearchmovielist component
+  -created redux store for gptSplice
+  -BONUS implemented change language feature in gptsearchpage
   
+
 
 
 -Browse(After authentication)
