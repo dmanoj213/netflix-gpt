@@ -28,7 +28,12 @@ features
   -created gpt search page with gpt search bar and gptsearchmovielist component
   -created redux store for gptSplice
   -BONUS implemented change language feature in gptsearchpage
-  
+  -builded gpt api response for search movie functioality
+  -created api key for fetching movies from chatgpt api
+  -gave chat gpt results of 5 movies and gave it to tmdb api to get response back from tmdb api
+  -showed the search result in gptmoviesuggestion page
+  -made our app responsive for mobile and desktop applications
+
 
 
 
