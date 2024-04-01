@@ -95,11 +95,11 @@ const toggleSignInForm = ()=>
     <div>
         <Header/>
         <div className='absolute'>
-            <img src={BG_URL}
+            <img className='h-screen w-screen object-cover' src={BG_URL}
             alt='bg-img'
             />
         </div>
-        <form onSubmit={(e)=> e.preventDefault()} className='absolute w-3/12 p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-40'>
+        <form onSubmit={(e)=> e.preventDefault()} className='absolute w-full md:w-3/12 p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-40'>
             <h1 className='p-4 my-4 w-full text-3xl'>{isSignInForm ? "Sign In": "Sign Up"}</h1>
 
             {!isSignInForm && <input ref={fullName} type="text" placeholder='Full Name'
