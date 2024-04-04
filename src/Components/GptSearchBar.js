@@ -63,7 +63,7 @@ const dispatch = useDispatch();
 }
 
   return (
-    <div className='pt-[35%] md:pt-[10%] flex justify-center'>
+    <div className='pt-[40%] md:pt-[10%] flex justify-center'>
         <form className=' w-full md:w-1/2 grid grid-cols-12' onSubmit={(e)=> e.preventDefault()}>
             <input ref={searchText} className='p-4 m-4 col-span-9 border border-black rounded-lg'
              type="text" placeholder={lang[langKey].gptSearchPlaceHolder}/>

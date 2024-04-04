@@ -94,7 +94,7 @@ const toggleSignInForm = ()=>
   return (
     <div>
         <Header/>
-        <div className='absolute'>
+        <div className='fixed'>
             <img className='h-screen w-screen object-cover' src={BG_URL}
             alt='bg-img'
             />
