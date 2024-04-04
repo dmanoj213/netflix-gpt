@@ -13,7 +13,7 @@ export const checkValidation = (email,password,fullName) =>
 
     if(!isFullnameValid) return "Please enter a valid name";
 
-    return;
+    return null;
 
     
 }
