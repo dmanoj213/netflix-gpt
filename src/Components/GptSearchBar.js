@@ -19,7 +19,7 @@ const dispatch = useDispatch();
     +movie+
     '&include_adult=false&language=en-US&page=1', NOWPLAYING_OPTIONS)
     const json = await data.json();
-    console.log(json.results);
+   
 
     return json.results;
 
@@ -34,7 +34,7 @@ const dispatch = useDispatch();
       });
 
    
-    console.log(gptResults.choices?.[0]?.message?.content);
+    
 
     //fetching movies from gpt api in the form of aaray
 
@@ -50,7 +50,7 @@ const dispatch = useDispatch();
 
     const tmdbResults = await Promise.all(promiseArray);
 
-    console.log(tmdbResults);
+
 
     dispatch(addGptMovieNames(gptMovies));
 
